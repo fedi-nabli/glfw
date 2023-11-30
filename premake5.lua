@@ -101,18 +101,22 @@ project "GLFW"
 	filter "configurations:Debug"
 		runtime "Debug"
 		symbols "on"
+		buildoptions "/MTd"
 
 	filter { "system:windows", "configurations:Debug-AS" }	
 		runtime "Debug"
 		symbols "on"
+		buildoptions "/MTd"
 		sanitize { "Address" }
 		flags { "NoRuntimeChecks", "NoIncrementalLink" }
 
 	filter "configurations:Release"
 		runtime "Release"
 		optimize "speed"
+		buildoptions "/MTd"
 
     filter "configurations:Dist"
 		runtime "Release"
+		buildoptions "/MTd"
 		optimize "speed"
         symbols "off"
